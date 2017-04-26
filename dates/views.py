@@ -3,14 +3,14 @@ from django.views.generic import View
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import RetrieveAPIView
 
 from .models import Nahual
 from .serializers import NahualSerializer
 from datetime import date
 
 
-class NahualListView(ListAPIView):
+class NahualListView(RetrieveAPIView):
     serializer_class = NahualSerializer
 
     def get_queryset(self):
@@ -23,3 +23,7 @@ class NahualListView(ListAPIView):
         count = delta.days + 1
         nahual = count % 20
         return Nahual.objects.filter(id=nahual)
+
+    def get_object(self):
+        queryset = self.get_queryset()
+        return queryset.first()
