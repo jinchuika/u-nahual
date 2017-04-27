@@ -5,6 +5,10 @@ from easy_thumbnails.fields import ThumbnailerImageField
 class Nahual(models.Model):
     nombre = models.CharField(max_length=20)
     color = models.CharField(max_length=15, null=True, blank=True)
+    codigo = models.CharField(max_length=7, null=True, blank=True)
+    caracteristicas = models.TextField(null=True, blank=True)
+    interpretacion = models.TextField(null=True, blank=True)
+    aplicacion = models.TextField(null=True, blank=True)
     simbolos = models.TextField(null=True, blank=True)
     descripcion = models.TextField(null=True, blank=True)
     foto = ThumbnailerImageField(
