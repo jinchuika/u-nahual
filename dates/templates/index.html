@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1 id="homeHeading">Descubre tu Nahual</h1>
+            <hr>
+            <p>Ingresa tu fecha de nacimiento</p>
+            <p>
+                <form class="form" id="nahual_form" method="post" action="{% url 'nahual_api' %}">
+                    {% csrf_token %}
+                    {{ form.fecha }}
+                    <br>
+                    <input type="submit" name="" class="btn btn-primary btn-xl" value="Buscar">
+                </form>
+            </p>
+        </div>
+    </div>
+</header>
+{% endblock content %}

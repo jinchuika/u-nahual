@@ -123,3 +123,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = 'media/'
 MEDIA_URL = '/media/'
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'background': {'size': (1350, 650), 'crop': True},
+        'avatar-lg': {'size': (500, 375), 'crop': True},
+        'avatar': {'size': (180, 180), 'crop': True},
+        'avatar-sm': {'size': (90, 90), 'crop': True},
+        'icon': {'size': (40, 40), 'crop': True},
+        'icon-xs': {'size': (15, 15), 'crop': True},
+    },
+}
