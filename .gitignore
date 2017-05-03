@@ -1,5 +1,6 @@
 *.sqlite3
 local_settings.py
+media/iconos_nahual/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
