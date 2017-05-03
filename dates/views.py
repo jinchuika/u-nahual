@@ -13,10 +13,18 @@ class NahualAPIView(RetrieveAPIView):
 
     def get_queryset(self):
         d0 = date(1900, 1, 1)
-        d1 = date(
-            int(self.request.query_params.get('anno', datetime.now().year)),
-            int(self.request.query_params.get('mes', datetime.now().month)),
-            int(self.request.query_params.get('dia', datetime.now().day)))
+        dia = self.request.query_params.get('dia')
+        mes = self.request.query_params.get('mes')
+        anno = self.request.query_params.get('anno')
+        try:
+            d1 = date(
+                int(self.request.query_params.get('anno')),
+                int(self.request.query_params.get('mes')),
+                int(self.request.query_params.get('dia')))
+        except TypeError:
+            d1 = datetime.now().date()
+        except ValueError:
+            d1 = datetime.now().date()
         delta = d1 - d0
         count = delta.days + 1
         nahual = count % 20

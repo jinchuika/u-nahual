@@ -2,6 +2,11 @@
 
 {% load staticfiles thumbnail %}
 
+{% block page_title %}
+<title>{{ nahual.nombre }}</title>
+<meta property="og:image" content="{{ nahual.foto|thumbnail_url:'avatar-lg' }}">
+{% endblock page_title %}
+
 {% block content %}
 <header class="bg-dark" id="about">
 	<div class="header-content">
