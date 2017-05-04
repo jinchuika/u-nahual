@@ -13,9 +13,6 @@ class NahualAPIView(RetrieveAPIView):
 
     def get_queryset(self):
         d0 = date(1900, 1, 1)
-        dia = self.request.query_params.get('dia')
-        mes = self.request.query_params.get('mes')
-        anno = self.request.query_params.get('anno')
         try:
             d1 = date(
                 int(self.request.query_params.get('anno')),
@@ -28,11 +25,19 @@ class NahualAPIView(RetrieveAPIView):
         delta = d1 - d0
         count = delta.days + 1
         nahual = count % 20
+        if nahual == 0:
+            nahual = 20
         return Nahual.objects.filter(id=nahual)
 
     def get_object(self):
         queryset = self.get_queryset()
         return queryset.first()
+
+
+class NahualRetrieveView(RetrieveAPIView):
+    serializer_class = NahualSerializer
+    queryset = Nahual.objects.all()
+    lookup_field = 'slug'
 
 
 class HomeView(FormView):

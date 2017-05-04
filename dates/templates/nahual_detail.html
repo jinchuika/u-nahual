@@ -4,6 +4,7 @@
 
 {% block page_title %}
 <title>{{ nahual.nombre }}</title>
+<meta property="og:title" content="{{ nahual.nombre }}">
 <meta property="og:image" content="{{ nahual.foto|thumbnail_url:'avatar-lg' }}">
 {% endblock page_title %}
 
@@ -44,22 +45,34 @@
 				<div class="service-box">
 					<i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
 					<h3>Características</h3>
-					<p class="text-muted">{{ nahual.caracteristicas }}</p>
+					<p class="text-muted">{{ nahual.caracteristicas|safe }}</p>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6 text-center">
 				<div class="service-box">
 					<i class="fa fa-4x fa-paint-brush text-primary sr-icons"></i>
 					<h3>Color</h3>
-					<p class="text-muted">{{ nahual.color }}</p>
+					<p class="text-muted">{{ nahual.color|safe }}</p>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6 text-center">
 				<div class="service-box">
 					<i class="fa fa-4x fa-sun-o text-primary sr-icons"></i>
 					<h3>Interpretación</h3>
-					<p class="text-muted">{{ nahual.interpretacion }}</p>
+					<p class="text-muted">{{ nahual.interpretacion|safe }}</p>
 				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="bg-primary">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 text-center">
+				<h2 class="section-heading">La siguiente repetición de {{ nahual.nombre }} será</h2>
+				<hr class="light">
+				<h2 class="section-heading">{{ nahual.get_siguiente_fecha|date:"d/m/Y" }}</h2>
 			</div>
 		</div>
 	</div>
