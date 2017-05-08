@@ -10,3 +10,7 @@ class NahualSerializer(serializers.ModelSerializer):
         model = Nahual
         fields = '__all__'
         lookup_field = 'slug'
+
+
+class NumeroSerializer(serializers.Serializer):
+    numero = serializers.IntegerField()
