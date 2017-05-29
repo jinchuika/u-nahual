@@ -134,3 +134,5 @@ THUMBNAIL_ALIASES = {
         'icon-xs': {'size': (15, 15), 'crop': True},
     },
 }
+
+FB_APP_KEY = ''

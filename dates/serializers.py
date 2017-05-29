@@ -2,8 +2,8 @@ from rest_framework import serializers
 from dates.models import Nahual
 
 
-class NahualSerializer(serializers.ModelSerializer):
-    url = serializers.CharField(source='get_absolute_url', read_only=True)
+class NahualSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(view_name='nahual_detail', lookup_field='slug')
     siguiente_fecha = serializers.CharField(source='get_siguiente_fecha', read_only=True)
 
     class Meta:
@@ -14,3 +14,9 @@ class NahualSerializer(serializers.ModelSerializer):
 
 class NumeroSerializer(serializers.Serializer):
     numero = serializers.IntegerField()
+
+
+class FechaSerializer(serializers.Serializer):
+	nahual = NahualSerializer()
+	numero = NumeroSerializer()
+		
