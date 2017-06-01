@@ -1,20 +1,37 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
-<header>
-    <div class="header-content">
-        <div class="header-content-inner">
-            <h1 id="homeHeading">Descubre tu Nahual</h1>
-            <hr>
-            <p>Ingresa tu fecha de nacimiento</p>
-            <p>
-                <form class="form" id="nahual_form" method="post" action="{% url 'nahual_api' %}">
-                    {% csrf_token %}
-                    {{ form.fecha }}
-                    <br>
-                    <input type="submit" name="" class="btn btn-primary btn-xl" value="Buscar">
-                </form>
-            </p>
+<!-- Intro Header -->
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">Descubre tu nahual</h1>
+                    <p class="intro-text">Escoge tu fecha de nacimiento para empezar</p>
+                    <form class="form" id="nahual_form" method="post" action="{% url 'nahual_api' %}">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    {{ form.day.label_tag }}
+                                    {{ form.day }}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                {{ form.month.label_tag }}
+                                {{ form.month }}
+                            </div>
+                            <div class="col-md-4">
+                                {{ form.year.label_tag }}
+                                {{ form.year }}
+                            </div>
+                        </div>
+                        {% csrf_token %}
+                        <br>
+                        <button class="btn btn-circle animated"><i class="fa fa-play"></i></button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </header>

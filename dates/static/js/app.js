@@ -28,11 +28,10 @@ function strToDate(dateStr)
 }
 
 function consultar() {
-    var fecha = $('#id_fecha').datepicker('getDate');
     $.get($('#nahual_form').attr('action'), {
-        anno: fecha.getFullYear(),
-        mes: fecha.getMonth() + 1,
-        dia: fecha.getDate(),
+        anno: $('#id_year').val(),
+        mes: $('#id_month').val(),
+        dia: $('#id_day').val(),
     }, function (data) {
         if (data.url) {
             window.location = data.url;
@@ -41,16 +40,8 @@ function consultar() {
 }
 
 $(document).ready(function () {
-    $('#id_fecha').datepicker({
-        language: 'es',
-        autoclose: true,
-        format: 'dd/mm/yyyy',
-        enableOnReadonly: true
-    });
-
     $('#nahual_form').on('submit', function (e) {
         e.preventDefault();
-        console.log($('#id_fecha').val());
         consultar();
     });
 });
