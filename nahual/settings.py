@@ -55,10 +55,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'nahual.urls'
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'nahual.context_processors.google_analytics',
-)
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -70,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'dates.context_processors.google_analytics',
             ],
         },
     },
