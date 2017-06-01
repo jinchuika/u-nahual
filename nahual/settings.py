@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'dates',
     'rest_framework',
     'easy_thumbnails',
@@ -53,6 +54,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'nahual.urls'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'nahual.context_processors.google_analytics',
+)
 
 TEMPLATES = [
     {
@@ -136,3 +141,7 @@ THUMBNAIL_ALIASES = {
 }
 
 FB_APP_KEY = ''
+
+GOOGLE_ANALYTICS_PROPERTY_ID = ''
+GOOGLE_ANALYTICS_DOMAIN = ''
+SITE_ID = 1
