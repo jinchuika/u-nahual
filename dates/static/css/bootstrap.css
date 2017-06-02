@@ -246,6 +246,7 @@ th {
     border-top-color: #000 !important;
   }
   .label {
+    font-size: 24px;
     border: 1px solid #000;
   }
   .table {
@@ -2510,6 +2511,7 @@ label {
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
+  font-size: 24px;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
