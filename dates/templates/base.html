@@ -14,7 +14,7 @@
     <meta property="og:title" content="Nahual App"/>
     <meta property="og:url" content=""/>
     <meta property="og:site_name" content="Nahual App"/>
-    <meta property="og:image" content="{{ request.get_host }}{% static "img/logo.png" %}"/>
+    <meta property="og:image" content="https://{{ request.get_host }}{% static "img/logo.png" %}"/>
     <meta property="og:description" content="Descubre tu Nahual"/>
     {% endblock page_title %}
 
@@ -33,7 +33,7 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-<!-- Navigation -->
+    <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -51,7 +51,15 @@
                         <a href="#page-top"></a>
                     </li>
                     {% block navbar %}
+                    <li>
+                        <a href="#" onclick="consultar();">NAHUAL DE HOY</a>
+                    </li>
                     {% endblock navbar %}
+                    <li>
+                        <a class="page-scroll" href="https://drive.google.com/open?id=0B-Dmn3ANfI73NGQ4MFlJZmpqdGs" target="_blank">
+                            <i class="fa fa-android" aria-hidden="true"></i> APP
+                        </a>
+                    </li>
                     <li>
                         <a class="page-scroll" href="https://www.facebook.com/nahualapp" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i> BOT</a>
                     </li>
@@ -62,7 +70,7 @@
         <!-- /.container -->
     </nav>
     {% block content %}
-        
+
     {% endblock content %}
     <footer>
         <div class="container text-center">
