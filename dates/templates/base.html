@@ -8,14 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="">
-    <meta property="og:title" content="Nahual App"/>
     <meta property="og:site_name" content="Nahual App"/>
-    <meta property="og:image" content="https://{{ request.get_host }}{% static "img/logo.png" %}"/>
     <meta property="og:image:type" content="image/png">
     <meta property="og:description" content="Descubre tu Nahual"/>
 
     {% block page_title %}
     <title>Nahual</title>
+    <meta property="og:title" content="Nahual App"/>
+    <meta property="og:image" content="https://{{ request.get_host }}{% static "img/logo.png" %}"/>
     {% endblock page_title %}
 
     <!-- Bootstrap Core CSS -->
@@ -29,6 +29,14 @@
     <!-- Theme CSS -->
     <link href="{% static "css/grayscale.css" %}" rel="stylesheet">
     <link href="{% static "css/bootstrap-datepicker.css" %}" rel="stylesheet">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-7910880084570598",
+            enable_page_level_ads: true
+        });
+    </script>
 
 </head>
 
