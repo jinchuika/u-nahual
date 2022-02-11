@@ -8,7 +8,7 @@ idna==2.5
 olefile==0.44
 packaging==16.8
 Pillow==4.1.0
-protobuf==3.3.0
+protobuf==3.15.0
 pycrypto==2.6.1
 pyparsing==2.2.0
 python-axolotl==0.1.39
